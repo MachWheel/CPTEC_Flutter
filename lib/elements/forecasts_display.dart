@@ -10,18 +10,21 @@ class ForecastResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text(results['cityName']))),
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "${results['cityName']} - ${results['district']}",
+          ),
+        ),
+      ),
       body: Column(
         children: [
-          DataTable(
-            columns: forecastDataColumns(),
-            rows: forecastDataRows(results['forecasts']),
-          ),
+          forecastListView(results['forecasts']),
           ElevatedButton.icon(
             onPressed: () => Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (_) => const AsyncCityForm())),
             icon: const Icon(Icons.replay),
-            label: const Text('De novo'),
+            label: const Text('Previsões para outro município'),
           ),
         ],
       ),

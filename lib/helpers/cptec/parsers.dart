@@ -11,20 +11,21 @@ Future<XmlDocument> requestXmlDocument(String url) async {
   return XmlDocument.parse(result);
 }
 
-List<Map<String, dynamic>> forecastResults(Iterable<XmlElement> fcastNodes) {
-  List<Map<String, dynamic>> parsed = [];
+Map<String, dynamic> forecastResults(Iterable<XmlElement> fcastNodes) {
+  Map<String, dynamic> parsed = {};
   for (final fcast in fcastNodes) {
     final dateString = fcast.findElements('dia').first.text;
     final weatherCode = fcast.findElements('tempo').first.text;
     final uvi = double.parse(fcast.findElements('iuv').first.text);
     final uviEmoji = weatherUviEmoji(uvi);
-    parsed.add({
-      "date": brWeekday(dateString),
+    final weekday = brWeekday(dateString);
+
+    parsed[weekday] = {
       "weather": weatherEmojis[weatherCode],
       "cmax": int.parse(fcast.findElements('maxima').first.text),
       "cmin": int.parse(fcast.findElements('minima').first.text),
       "uvi": uviEmoji,
-    });
+    };
   }
   return parsed;
 }
@@ -32,13 +33,13 @@ List<Map<String, dynamic>> forecastResults(Iterable<XmlElement> fcastNodes) {
 String brWeekday(String dateString) {
   final int weekday = DateTime.parse(dateString).weekday;
   const Map<int, String> weekdays = {
-    1: "Seg",
-    2: "Ter",
-    3: "Qua",
-    4: "Qui",
-    5: "Sex",
-    6: "Sab",
-    7: "Dom"
+    1: "Segunda-feira",
+    2: "Terça-feira",
+    3: "Quarta-feira",
+    4: "Quinta-feira",
+    5: "Sexta-feira",
+    6: "Sábado",
+    7: "Domingo"
   };
   return weekdays[weekday]!;
 }

@@ -24,7 +24,7 @@ Future<Map<String, dynamic>> _cityForecasts(int cityCode) async {
   final String district = cityNode.findElements('uf').first.text;
   final String updated = cityNode.findElements('atualizacao').first.text;
   final Iterable<XmlElement> fcastNodes = document.findAllElements('previsao');
-  final List<Map<String, dynamic>> forecasts = forecastResults(fcastNodes);
+  final Map<String, dynamic> forecasts = forecastResults(fcastNodes);
   return {
     "cityCode": cityCode,
     "cityName": cityName,
