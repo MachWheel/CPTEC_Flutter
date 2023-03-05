@@ -1,6 +1,6 @@
 import 'package:xml/xml.dart';
 
-import '../../parsers.dart';
+import '../../helpers/parsers.dart';
 import 'endpoints.dart';
 import 'parsers.dart';
 
