@@ -41,8 +41,6 @@ class AsyncCityFormBloc extends FormBloc<String, String> {
   @override
   void onSubmitting() async {
     try {
-      await Future<void>.delayed(const Duration(milliseconds: 500));
-
       emitSuccess();
     } catch (e) {
       emitFailure();

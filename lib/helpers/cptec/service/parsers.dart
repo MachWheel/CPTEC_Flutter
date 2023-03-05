@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'package:requests/requests.dart';
 import 'package:xml/xml.dart';
+
 import 'labels.dart';
 
 Future<XmlDocument> requestXmlDocument(String url) async {
@@ -18,7 +18,7 @@ Map<String, dynamic> forecastResults(Iterable<XmlElement> fcastNodes) {
     final weatherCode = fcast.findElements('tempo').first.text;
     final uvi = double.parse(fcast.findElements('iuv').first.text);
     final uviEmoji = weatherUviEmoji(uvi);
-    final weekday = brWeekday(dateString);
+    final weekday = _brWeekday(dateString);
 
     parsed[weekday] = {
       "weather": weatherEmojis[weatherCode],
@@ -30,7 +30,7 @@ Map<String, dynamic> forecastResults(Iterable<XmlElement> fcastNodes) {
   return parsed;
 }
 
-String brWeekday(String dateString) {
+String _brWeekday(String dateString) {
   final int weekday = DateTime.parse(dateString).weekday;
   const Map<int, String> weekdays = {
     1: "Segunda-feira",

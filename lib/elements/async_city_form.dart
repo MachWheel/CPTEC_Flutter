@@ -4,7 +4,7 @@ import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'forecasts_display.dart';
 import 'loading_dialog.dart';
 import 'async_city_form_bloc.dart';
-import '../helpers/cptec/services.dart';
+import '../helpers/cptec/service/api.dart';
 
 class AsyncCityForm extends StatelessWidget {
   const AsyncCityForm({Key? key}) : super(key: key);

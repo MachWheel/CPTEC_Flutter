@@ -1,7 +1,8 @@
-import 'package:firstflutter/helpers/cptec/parsers.dart';
 import 'package:xml/xml.dart';
-import '../parsers.dart';
+
+import '../../parsers.dart';
 import 'endpoints.dart';
+import 'parsers.dart';
 
 Future<Map<String, dynamic>> getCityForecasts(String cityName) async {
   return _cityCode(cityName).then((value) => _cityForecasts(value));

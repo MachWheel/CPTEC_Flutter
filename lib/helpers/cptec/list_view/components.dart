@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../labels.dart';
+import '../service/labels.dart';
 
 Column uviColumn(Map<String, dynamic> fcast) {
   return Column(

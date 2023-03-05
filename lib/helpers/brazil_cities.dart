@@ -6,23 +6,18 @@ class BrazilCities {
 
   static Future<BrazilCities> init() async {
     var brazilCities = BrazilCities();
-    brazilCities.rawList = await getRawList();
+    brazilCities.rawList = await _getRawList();
     brazilCities.clearList = [
       for (var x in brazilCities.rawList!) clearPtBrString(x)
     ];
     return brazilCities;
   }
 
-  static Future<List<String>> getRawList() async {
-    final rawList = await parsedJsonList("assets/data/br_cities.json");
-    return rawList;
-  }
-
   static Future<List<String>> getSuggestions(String? target) async {
     if (target == null || target == '') {
       return [];
     }
-    final rawList = await parsedJsonList("assets/data/br_cities.json");
+    final rawList = await _getRawList();
     List<String> suggs = [];
     for (String city in rawList) {
       if (clearPtBrString(city).contains(clearPtBrString(target))) {
@@ -38,5 +33,10 @@ class BrazilCities {
     }
     target = clearPtBrString(target);
     return clearList!.contains(target);
+  }
+
+  static Future<List<String>> _getRawList() async {
+    final rawList = await parsedJsonList("assets/data/br_cities.json");
+    return rawList;
   }
 }
