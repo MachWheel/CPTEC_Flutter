@@ -11,7 +11,7 @@ Future<String> loadCities() async {
 
 Future<List<String>> getSuggestions(String? target) async {
   if (target == null || target == '') {
-    return [];
+    return ['nenhuma sugestão'];
   }
   List<String> suggs = [];
   for (String city in rawCities) {

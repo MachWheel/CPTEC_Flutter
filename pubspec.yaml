@@ -37,6 +37,9 @@ dependencies:
   flutter_form_bloc: ^0.30.1
   requests: ^4.7.0
   xml: ^6.2.2
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
