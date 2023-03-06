@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/forecast_form.dart';
+import 'widgets/forecast/form.dart';
 
 void main() => runApp(const App());
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'forecast_form.dart';
+import 'forecast/form.dart';
 
 class SuccessScreen extends StatelessWidget {
   final Map<String, dynamic> results;
