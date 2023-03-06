@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import '../cptec/service/api.dart';
-import 'async_city_form_bloc.dart';
-import 'forecasts_display.dart';
+import 'forecast_form_bloc.dart';
+import 'forecast_results.dart';
 import 'loading_dialog.dart';
 
-class AsyncCityForm extends StatefulWidget {
-  const AsyncCityForm({Key? key}) : super(key: key);
+class ForecastForm extends StatefulWidget {
+  const ForecastForm({Key? key}) : super(key: key);
 
   @override
-  State<AsyncCityForm> createState() => _AsyncCityFormState();
+  State<ForecastForm> createState() => _ForecastFormState();
 }
 
-class _AsyncCityFormState extends State<AsyncCityForm> {
+class _ForecastFormState extends State<ForecastForm> {
   final Future<String> _brazilCities = loadCities();
 
   @override
@@ -31,9 +31,9 @@ class _AsyncCityFormState extends State<AsyncCityForm> {
         Widget rendered;
         if (snapshot.hasData) {
           rendered = BlocProvider(
-            create: (context) => AsyncCityFormBloc(),
+            create: (context) => ForecastFormBloc(),
             child: Builder(builder: (context) {
-              final formBloc = context.read<AsyncCityFormBloc>();
+              final formBloc = context.read<ForecastFormBloc>();
               return _scaffoldSearchForm(formBloc);
             }),
           );
@@ -83,13 +83,13 @@ class _AsyncCityFormState extends State<AsyncCityForm> {
     );
   }
 
-  Scaffold _scaffoldSearchForm(AsyncCityFormBloc formBloc) {
+  Scaffold _scaffoldSearchForm(ForecastFormBloc formBloc) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('⚒️  Previsões CPTEC MVP'),
       ),
-      body: FormBlocListener<AsyncCityFormBloc, String, String>(
+      body: FormBlocListener<ForecastFormBloc, String, String>(
         onSubmitting: (context, state) {
           LoadingDialog.show(context);
         },
@@ -115,7 +115,7 @@ class _AsyncCityFormState extends State<AsyncCityForm> {
     );
   }
 
-  SingleChildScrollView _searchFormScrollView(AsyncCityFormBloc formBloc) {
+  SingleChildScrollView _searchFormScrollView(ForecastFormBloc formBloc) {
     return SingleChildScrollView(
       physics: const ClampingScrollPhysics(),
       child: Column(
@@ -127,7 +127,7 @@ class _AsyncCityFormState extends State<AsyncCityForm> {
     );
   }
 
-  ElevatedButton _searchFormSubmitButton(AsyncCityFormBloc formBloc) {
+  ElevatedButton _searchFormSubmitButton(ForecastFormBloc formBloc) {
     return ElevatedButton(
       onPressed: formBloc.submit,
       child: const Padding(
@@ -143,7 +143,7 @@ class _AsyncCityFormState extends State<AsyncCityForm> {
     );
   }
 
-  Padding _searchFormInput(AsyncCityFormBloc formBloc) {
+  Padding _searchFormInput(ForecastFormBloc formBloc) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFieldBlocBuilder(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/async_city_form.dart';
+import 'widgets/forecast_form.dart';
 
 void main() => runApp(const App());
 
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AsyncCityForm(),
+      home: ForecastForm(),
     );
   }
 }

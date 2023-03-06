@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-import 'async_city_form.dart';
+import 'forecast_form.dart';
 import '../cptec/list_view/widget.dart';
 
 class ForecastResults extends StatelessWidget {
@@ -23,7 +24,7 @@ class ForecastResults extends StatelessWidget {
           forecastListView(results['forecasts']),
           ElevatedButton.icon(
             onPressed: () => Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => const AsyncCityForm())),
+                MaterialPageRoute(builder: (_) => const ForecastForm())),
             icon: const Icon(Icons.replay),
             label: const Text('Previsões para outro município'),
           ),

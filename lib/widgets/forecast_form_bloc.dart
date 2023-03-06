@@ -32,7 +32,7 @@ bool _validCityInput(String? target) {
   return clearCities.contains(target);
 }
 
-class AsyncCityFormBloc extends FormBloc<String, String> {
+class ForecastFormBloc extends FormBloc<String, String> {
   final cityName = TextFieldBloc(
     validators: [
       FieldBlocValidators.required,
@@ -42,7 +42,7 @@ class AsyncCityFormBloc extends FormBloc<String, String> {
     suggestions: _getSuggestions,
   );
 
-  AsyncCityFormBloc() {
+  ForecastFormBloc() {
     addFieldBlocs(fieldBlocs: [cityName]);
 
     cityName.addAsyncValidators(

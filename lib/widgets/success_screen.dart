@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'async_city_form.dart';
+import 'forecast_form.dart';
 
 class SuccessScreen extends StatelessWidget {
   final Map<String, dynamic> results;
@@ -24,7 +24,7 @@ class SuccessScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () => Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => const AsyncCityForm())),
+                  MaterialPageRoute(builder: (_) => const ForecastForm())),
               icon: const Icon(Icons.replay),
               label: const Text('De novo'),
             ),
