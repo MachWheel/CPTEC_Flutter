@@ -59,6 +59,7 @@ Padding _searchFormInput(ForecastFormBloc formBloc) {
     padding: const EdgeInsets.all(8.0),
     child: TextFieldBlocBuilder(
       textFieldBloc: formBloc.cityName,
+      showSuggestionsWhenIsEmpty: false,
       suffixButton: SuffixButton.asyncValidating,
       keyboardType: TextInputType.emailAddress,
       decoration: const InputDecoration(
