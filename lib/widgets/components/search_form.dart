@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
 import '../../../cptec/service/api.dart';
-import '../form_bloc.dart';
-import '../results.dart';
+import '../forecast_form_bloc.dart';
+import '../forecast_results.dart';
 
 import './loading_forecasts.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../cptec/list_view/widget.dart';
 
-import './form.dart';
+import 'forecast_form.dart';
 
 class ForecastResults extends StatelessWidget {
   final Map<String, dynamic> results;
