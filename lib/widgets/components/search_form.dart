@@ -24,7 +24,7 @@ Scaffold scaffoldSearchForm(ForecastFormBloc formBloc) {
         final cityName = formBloc.cityName.value;
         getCityForecasts(cityName).then((value) {
           LoadingForecasts.hide(context);
-          Navigator.of(context).pushReplacement(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => ForecastResults(value),
             ),
@@ -60,7 +60,7 @@ Padding _searchFormInput(ForecastFormBloc formBloc) {
     child: TextFieldBlocBuilder(
       textFieldBloc: formBloc.cityName,
       showSuggestionsWhenIsEmpty: false,
-      suffixButton: SuffixButton.asyncValidating,
+      suffixButton: SuffixButton.clearText,
       keyboardType: TextInputType.emailAddress,
       decoration: const InputDecoration(
         labelText: 'Nome do Município',
